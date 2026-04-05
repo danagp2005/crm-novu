@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Pedidos</title>
+</head>
+<body>
+
+<h2>Lista de Pedidos</h2>
+
+<table border="1">
+
+    <tr>
+    <th>Nombre</th>
+    <th>Teléfono</th>
+    <th>Producto</th>
+    <th>Estado</th>
+    <th>Fecha</th>
+    <th>Entrega</th>
+    <th>Eliminar</th>
+    </tr>
+
+    {% for p in pedidos %}
+    <tr><td>{{ p.nombre }}</td>
+
+<td>
+    <a href="https://wa.me/52{{ p.telefono }}" target="_blank">
+        {{ p.telefono }}
+    </a>
+</td>
+
+<td>{{ p.producto }}</td>
+
+<td>{{ p.estado }}</td>
+
+<td>{{ p.fecha }}</td>
+
+<td>{{ p.fecha_entrega }}</td>
+
+<td>
+    <a href="/eliminar/{{ p.id }}" style="color:red;">Eliminar</a>
+</td>
+        <td>{{ p.nombre }}</td>
+
+        <td>
+            <a href="https://wa.me/525654634701" target="_blank">
+    Ir a mi WhatsApp
+            </a>
+        </td>
+
+        <td>{{ p.producto }}</td>
+
+        <td>{{ p.estado }}</td>
+
+        <td>
+            <a href="/estado/{{ p.id }}/Contactado">Contactado</a> |
+            <a href="/estado/{{ p.id }}/Cerrado">Cerrado</a>
+        </td>
+    </tr>
+    {% endfor %}
+
+</table>
+
+<br>
+<a href="/">Nuevo pedido</a>
+
+</body>
+</html>
